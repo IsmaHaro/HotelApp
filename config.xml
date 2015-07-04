@@ -19,7 +19,8 @@
         <author href="http://igitsoft.com" email="info@igitsoft.com">
             Carlos Celma
         </author>
-
-        <gap:plugin name="org.apache.cordova.dialogs" />
-        <gap:plugin name="org.apache.cordova.media-capture" />
+        
+        <feature name="http://api.phonegap.com/1.0/notification" />
+        <feature name="http://api.phonegap.com/1.0/device" />
+        
     </widget>
