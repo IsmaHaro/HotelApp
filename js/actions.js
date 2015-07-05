@@ -19,11 +19,10 @@ var fn = {
         var tel = $('#regTel').val();
         var foto = $('#fotoTomada').attr("rel");
         
-        alert();
-        /*if(nom != '' && mai != '' && tel != '' && foto != undefined && foto != '')
+        if(nom != '' && mai != '' && tel != '' && foto != undefined && foto != '')
             alert(nom + " - " + mai + " - " + tel);
         else
-            navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");*/
+            navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");
     }
 };
 

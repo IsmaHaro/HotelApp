@@ -8,11 +8,10 @@ var mc = {
             $('#fotoTomada').attr("rel", path);
         }
     },
-    captureError = function(error) {
+    captureError: function(error) {
         navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
     },
     start: function(){
-        //navigator.device.capture.captureImage(mc.captureSuccess, mc.captureError, {limit:2});
-        alert();
+        navigator.device.capture.captureImage(mc.captureSuccess, mc.captureError, {limit:2});
     }
 };
