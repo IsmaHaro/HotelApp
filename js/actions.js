@@ -21,6 +21,7 @@ var fn = {
         
         if(nom != '' && mai != '' && tel != '' && foto != undefined && foto != ''){
             fn.enviarRegistro(nom,mai,tel,foto);
+            alert("Registro enviado");
         }
         else
             navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");
@@ -38,7 +39,7 @@ var fn = {
             .done(function( msg ) {
                 if(msg == 1){
                      //subir foto
-                     alert("Datos registrados... subiendo la foto");
+                     alert("Datos registrados... subiendo la foto"+msg);
                      ft.start(foto);
                 }else{
                     //METODO ALERT DE PHONEGAP
