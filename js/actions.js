@@ -34,6 +34,7 @@ var fn = {
                 alert("ajax connection error");
             }
         }).done(function( msg ) {
+            alert(msg);
             if(msg == 1){
                 ft.start(foto);//Enviar Foto
             }else{
