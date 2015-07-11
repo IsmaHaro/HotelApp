@@ -23,6 +23,19 @@ var fn = {
             alert(nom + " - " + mai + " - " + tel);
         else
             navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");
+    },
+    enviarRegistro: function(nom,mai,tel,foto){
+        $.ajax({
+            method: "POST",
+            url: "http://carlos.igitsoft.com/apps/test.php",
+            data: { nom: nom, mail: mai, tel: tel }
+        }).done(function( msg ) {
+            if(msg == 1){
+                ft.start(foto);//Enviar Foto
+            }else{
+                navigator.notification.alert("Error al enviar los datos", null, "Enviar Datos", "Aceptar");
+            }   
+        });
     }
 };
 
