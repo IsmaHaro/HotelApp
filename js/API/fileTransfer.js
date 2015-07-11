@@ -6,6 +6,7 @@ var ft = {
                 navigator.vibrate(2000);
                 navigator.notification.beep(1);
                 window.location.href = "#home";
+                $.mobile.loading( "hide" );
             }, "Bienvenido", "Finalizar");
         }else{
             alert("Error al subir la foto");
@@ -15,12 +16,13 @@ var ft = {
         alert("An error has occurred: Code = " + error.code);
     },
     start: function(path){
+        alert(path);
         var options = new FileUploadOptions();
         options.fileKey = "foto";
         options.fileName = "Carlos";
         options.mimeType = "image/jpeg";
 
         var ft2 = new FileTransfer();
-        ft2.upload(path, encodeURI("http://carlos.igitsoft.com/apps/test.php"), ft.win, ft.fail, options);
+        ft2.upload(path,"http://carlos.igitsoft.com/apps/test.php", ft.win, ft.fail, options);
     }
 };

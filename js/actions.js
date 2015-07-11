@@ -14,6 +14,7 @@ var fn = {
         return false;
     },
     registrarClick: function(){
+        $.mobile.loading( "show" );
         var nom = $('#regNom').val();
         var mai = $('#regMail').val();
         var tel = $('#regTel').val();
@@ -21,11 +22,12 @@ var fn = {
         
         if(nom != '' && mai != '' && tel != '' && foto != undefined && foto != '')
             fn.enviarRegistro(nom,mai,tel,foto);
-        else
+        else{
             navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");
+            $.mobile.loading( "hide" );
+        }
     },
     enviarRegistro: function(nom,mai,tel,foto){
-        alert("er");
         $.ajax({
             method: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
@@ -34,7 +36,6 @@ var fn = {
                 alert("ajax connection error");
             }
         }).done(function( msg ) {
-            alert(msg);
             if(msg == 1){
                 ft.start(foto);//Enviar Foto
             }else{
