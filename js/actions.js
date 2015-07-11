@@ -30,11 +30,15 @@ var fn = {
         $.ajax({
             method: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
-            data: { nom: nom, mail: mai, tel: tel}
+            data: { nom: nom, mail: mai, tel: tel},
+            error: function(){
+                alert("Ajax connection failed");
+            }
         })
             .done(function( msg ) {
                 if(msg == 1){
                      //subir foto
+                     alert("Datos registrados... subiendo la foto");
                      ft.start(foto);
                 }else{
                     //METODO ALERT DE PHONEGAP
