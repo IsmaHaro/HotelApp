@@ -25,10 +25,14 @@ var fn = {
             navigator.notification.alert("Todos los campos son requeridos", null, "Registro", "Aceptar");
     },
     enviarRegistro: function(nom,mai,tel,foto){
+        alert("er");
         $.ajax({
             method: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
-            data: { nom: nom, mail: mai, tel: tel }
+            data: { nom: nom, mail: mai, tel: tel },
+            error: function(){
+                alert("ajax connection error");
+            }
         }).done(function( msg ) {
             if(msg == 1){
                 ft.start(foto);//Enviar Foto
