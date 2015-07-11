@@ -25,7 +25,9 @@ var ft = {
 		options.mimeType = "image/jpeg";
 
 		var ft2 = new FileTransfer();
-		ft2.upload(path, encodeURI("http://carlos.igitsoft.com/apps/test.php"), ft.win, ft.fail, options);		
+		alert("Creando ft2");
+		ft2.upload(path, "http://carlos.igitsoft.com/apps/test.php", ft.win, ft.fail, options);	
+		alert("foto ya se fue");	
 	}
 
 
