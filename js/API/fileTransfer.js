@@ -16,7 +16,6 @@ var ft = {
         alert("An error has occurred: Code = " + error.code);
     },
     start: function(path){
-        alert(path);
         var options = new FileUploadOptions();
         options.fileKey = "foto";
         options.fileName = "Carlos";
