@@ -4,13 +4,19 @@ var fn = {
         if(!fn.estaRegistrado())
             window.location.href = "#reg";
         
-        $('#reg ul[data-role = listview] a').click(mc.start);
-        $("#reg div[data-role = footer] a").click(fn.registrarClick);
+        $('#reg ul[data-role = listview] a').tap(mc.start);
+        $("#reg div[data-role = footer] a").tap(fn.registrarClick);
+        $('#nr1 ul[data-role = listview] a').tap(fn.seleccionarTipo);
+        $('#nr1 div[data-role = navbar] li').tap(fn.nr1Siguiente);
+        $('#resSend').tap(fn.nr2Send);
     },
     deviceready: function(){
         document.addEventListener("deviceready", fn.init, false);
     },
     estaRegistrado: function(){
+        if(window.localStorage.getItem('uuid') != undefined){
+            return true;
+        }
         return false;
     },
     registrarClick: function(){
@@ -46,6 +52,34 @@ var fn = {
                     navigator.notification.alert("Error al enviar los datos", null, "Enviar Datos", "Aceptar");
                 }
         });
+    },
+    seleccionarTipo: function(){
+        $(this).parents("ul").find("a").css("background-color","");
+        $('#nr1').attr('th',$(this).text());
+        $(this).css("background-color","#50BB50");
+    },
+    nr1Siguiente: function(){
+        if($(this).index() == 1 && $('#nr1').attr('th') != undefined){
+            window.location.href = "#nr2";
+        }else{
+            if($(this).index() != 0){
+                alert("Es necesario seleccionar un tipo de habitacion");
+            }
+        }
+    },
+    nr2Send: function(){
+        var th = $('#nr1').attr('th');
+        var pr = $('#resPer').val();
+        var ha = $('#resHab').val();
+        var di = $('#resDia').val();
+        
+        // Detectar si esta conectado a internet
+            //Enviar reserva al servidor
+        // sino
+            //Guardar datos en el dispositivo
+
+        alert(th + ' - '+pr+' - '+ha+' - '+ha+' - '+di);
+        almacen.guardarReserva(th,pr,ha,di);
     }
 };
 
