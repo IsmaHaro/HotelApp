@@ -9,6 +9,7 @@ var fn = {
 		$('#nr1 ul[data-role = listview] a').tap(fn.seleccionarTipo);
 		$('#nr1 div[data-role = navbar] li').tap(fn.nr1Siguiente);
 		$('#resSend').tap(fn.nr2Send);
+		document.addEventListener("online", almacen.leerReservas, false);
     },
     deviceready: function(){
 		document.addEventListener("deviceready", fn.init, false);
@@ -68,9 +69,9 @@ var fn = {
 		var ha = $('#resHab').val();
 		var di = $('#resDia').val();
 		
-		//Detectar si está conectado a internet
-			//Enviar reserva al servidor
-		//sino
+		if(conex.isConnected())//Detectar si está conectado a internet
+			//Enviar Reservas al servidor
+		else//sino
 			almacen.guardarReserva(th,pr,ha,di);//Guardar datos en el dispositivo
 	}
 };
